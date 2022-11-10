@@ -1,0 +1,11 @@
+127.0.0.1	localhost
+127.0.1.1	debian.local	debian
+10.0.0.2	client-1.local	client-1
+10.0.0.3	client-2.local	client-2
+10.0.0.4	server.local	server
+# 10.0.0.1 router.local gw för klienter
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

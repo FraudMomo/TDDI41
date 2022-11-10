@@ -1,0 +1,23 @@
+1. Vad är kommandot för att skicka 5 packet till localhost?
+ping localhost -c 5
+2. Vad är kommandot för att skicka 3 packet till localhost med 2 sekunders mellanrum mellan varje packet?
+ping localhost -c 3 -i 2
+3. Vad är kommandot för att lista adresserna för alla nätverksinterfacen i datorn?
+ip address eller ip addr
+4. Vad är kommandot för att ta nätverksinterfacet ens4 online?
+ip link set ens4 up
+5. Vad är kommandot för att ge nätverksinterfacet ens4 ip-adressen 192.168.1.2 med en 24-bitars nätmask?
+ip addr add 192.168.1.2/24 dev ens4
+6. Vad är kommandot för att visa routing-tabellen?
+ip route
+
+Ändringar:
+
+Alla maskiner har givits en ip-address med nätmask och gateway i /etc/network/interfaces-filen. Vi har också givit alla maskiner
+ett namn i /etc/hostname och stoppat in alla ip-addresser med tillhörande FQDN och värdnamn i /etc/hosts på routern.
+
+Sedan har vi slagit på ip-forwarding genom att redigera raden net.ipv4.ip_forward till 1 i filen /etc/sysctl.conf, spara med
+kommandot "sysctl -p /etc/sysctl.conf" och starta om proc fil-systemet med kommandot "/etc/init.d/procps restart".
+
+Till sist slog vi på masquerading med hjälp av kommandot "iptables -t nat -A PORTROUTING -j MASQUERADE" och gjorde det persistent
+med kommandot "netfilter-persistent save" från paketet iptables-persistent.

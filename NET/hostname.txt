@@ -1,0 +1,2 @@
+gw
+# client-1, client-2 och server för dem andra maskinerna
